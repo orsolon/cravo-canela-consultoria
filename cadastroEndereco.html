@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de endereço</title>
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Shadows+Into+Light&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/styles/reset.css">
+    <link rel="stylesheet" href="assets/styles/cadastroEndereco.css">
+</head>
+
+<body>
+
+    <nav>
+        <button id="buttonPaginaInicial" class="button-pagina-inicial">Página inicial</button>
+        <button id="buttonMinhaConta" class="button-minha-conta">Minha conta</button>
+    </nav>
+
+    <img class="logo-body" src="assets/img/logo1.png" alt="Logo Love PetShop">
+    <img class="imagem-fundo-body" src="assets/img/cadastroimage.png"
+        alt="Imagem de um cachorro filhote de cor caramelo">
+
+    <form action="">
+        <h3>Cadastre seu endereço</h3>
+
+        <div class="form-container">
+                
+                <input id="cep" class="cep" type="text" placeholder="     CEP">
+            
+                <input id="rua" class="rua" type="text" placeholder="     Rua">
+            
+                <input id="numero" class="numero" type="text" placeholder="     Número">
+            
+                <input id="complemento" class="complemento" type="text" placeholder="     Complemento">
+            
+                <input id="bairro" class="bairro" type="text" placeholder="     Bairro">
+            
+                <input id="cidade" class="cidade" type="text" placeholder="     Cidade">
+            
+                <input id="estado" class="estado" type="text" placeholder="     Estado">
+            
+                <input type="submit" value="Cadastrar" onclick="cadastrar()" id="buttonCadastrar" class="button-submit">
+        </div>
+    </form>
+
+    <footer>
+        <p> &copy;2022 Love Pet Shop</p>
+        <img src="assets/img/logo1.png" alt="Logo Love PetShop">
+    </footer>
+
+
+
+    <script src="cadastroEndereco.js"></script>
+</body>
+
+</html>
