@@ -27,12 +27,12 @@ CREATE TABLE `animal` (
   `nome` varchar(45) NOT NULL,
   `raca` varchar(45) NOT NULL,
   `peso` int DEFAULT NULL,
-  `tipo` varchar(7) DEFAULT NULL,
+  `tipo` varchar(10) DEFAULT NULL,
   `porte` varchar(5) DEFAULT NULL,
-  `id_cliente` int NOT NULL,
+  `id_cliente` int DEFAULT NULL,
   PRIMARY KEY (`id_animal`),
-  KEY `fk_animal_cliente1_idx` (`id_cliente`),
-  CONSTRAINT `fk_animal_cliente1` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`)
+  KEY `id_cliente1_idx` (`id_cliente`),
+  CONSTRAINT `id_cliente1` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COMMENT='	';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -43,33 +43,6 @@ CREATE TABLE `animal` (
 LOCK TABLES `animal` WRITE;
 /*!40000 ALTER TABLE `animal` DISABLE KEYS */;
 /*!40000 ALTER TABLE `animal` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `animal_has_pedido`
---
-
-DROP TABLE IF EXISTS `animal_has_pedido`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `animal_has_pedido` (
-  `id_animal` int NOT NULL,
-  `id_pedido` int NOT NULL,
-  PRIMARY KEY (`id_animal`,`id_pedido`),
-  KEY `fk_animal_has_pedido_pedido1_idx` (`id_pedido`),
-  KEY `fk_animal_has_pedido_animal1_idx` (`id_animal`),
-  CONSTRAINT `fk_animal_has_pedido_animal1` FOREIGN KEY (`id_animal`) REFERENCES `animal` (`id_animal`),
-  CONSTRAINT `fk_animal_has_pedido_pedido1` FOREIGN KEY (`id_pedido`) REFERENCES `pedido` (`id_pedido`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `animal_has_pedido`
---
-
-LOCK TABLES `animal_has_pedido` WRITE;
-/*!40000 ALTER TABLE `animal_has_pedido` DISABLE KEYS */;
-/*!40000 ALTER TABLE `animal_has_pedido` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -84,13 +57,10 @@ CREATE TABLE `cliente` (
   `nome` varchar(100) NOT NULL,
   `email` varchar(50) NOT NULL,
   `senha` text,
-  `cpf` varchar(13) NOT NULL,
-  `telefone_1` varchar(10) NOT NULL,
-  `telefone_2` varchar(10) DEFAULT NULL,
-  `id_endereco` int NOT NULL,
-  PRIMARY KEY (`id_cliente`),
-  KEY `fk_cliente_endereco_idx` (`id_endereco`),
-  CONSTRAINT `fk_cliente_endereco` FOREIGN KEY (`id_endereco`) REFERENCES `endereco` (`id_endereco`)
+  `cpf` varchar(14) NOT NULL,
+  `telefone_1` varchar(11) NOT NULL,
+  `telefone_2` varchar(11) DEFAULT NULL,
+  PRIMARY KEY (`id_cliente`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -119,7 +89,10 @@ CREATE TABLE `endereco` (
   `bairro` varchar(30) NOT NULL,
   `cidade` varchar(30) NOT NULL,
   `estado` varchar(2) NOT NULL,
-  PRIMARY KEY (`id_endereco`)
+  `id_cliente` int DEFAULT NULL,
+  PRIMARY KEY (`id_endereco`),
+  KEY `id_cliente_idx` (`id_cliente`),
+  CONSTRAINT `id_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COMMENT='		';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -130,33 +103,6 @@ CREATE TABLE `endereco` (
 LOCK TABLES `endereco` WRITE;
 /*!40000 ALTER TABLE `endereco` DISABLE KEYS */;
 /*!40000 ALTER TABLE `endereco` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `endereco_has_pedido`
---
-
-DROP TABLE IF EXISTS `endereco_has_pedido`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `endereco_has_pedido` (
-  `id_endereco` int NOT NULL,
-  `id_pedido` int NOT NULL,
-  PRIMARY KEY (`id_endereco`,`id_pedido`),
-  KEY `fk_endereco_has_pedido_pedido1_idx` (`id_pedido`),
-  KEY `fk_endereco_has_pedido_endereco1_idx` (`id_endereco`),
-  CONSTRAINT `fk_endereco_has_pedido_endereco1` FOREIGN KEY (`id_endereco`) REFERENCES `endereco` (`id_endereco`),
-  CONSTRAINT `fk_endereco_has_pedido_pedido1` FOREIGN KEY (`id_pedido`) REFERENCES `pedido` (`id_pedido`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `endereco_has_pedido`
---
-
-LOCK TABLES `endereco_has_pedido` WRITE;
-/*!40000 ALTER TABLE `endereco_has_pedido` DISABLE KEYS */;
-/*!40000 ALTER TABLE `endereco_has_pedido` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -179,10 +125,19 @@ CREATE TABLE `pedido` (
   `desconto` double DEFAULT NULL,
   `tempo_execucao` time DEFAULT NULL,
   `forma_pagto` varchar(15) NOT NULL,
-  `id_cliente` int NOT NULL,
+  `id_cliente` int DEFAULT NULL,
+  `id_animal` int DEFAULT NULL,
+  `id_servico` int DEFAULT NULL,
+  `id_endereco` int DEFAULT NULL,
   PRIMARY KEY (`id_pedido`),
   KEY `fk_pedido_cliente1_idx` (`id_cliente`),
-  CONSTRAINT `fk_pedido_cliente1` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`)
+  KEY `id_animal_idx` (`id_animal`),
+  KEY `id_servico3_idx` (`id_servico`),
+  KEY `id_endereco_idx` (`id_endereco`),
+  CONSTRAINT `fk_pedido_cliente1` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`),
+  CONSTRAINT `id_animal` FOREIGN KEY (`id_animal`) REFERENCES `animal` (`id_animal`),
+  CONSTRAINT `id_endereco` FOREIGN KEY (`id_endereco`) REFERENCES `endereco` (`id_endereco`),
+  CONSTRAINT `id_servico` FOREIGN KEY (`id_servico`) REFERENCES `servico` (`id_servico`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -193,33 +148,6 @@ CREATE TABLE `pedido` (
 LOCK TABLES `pedido` WRITE;
 /*!40000 ALTER TABLE `pedido` DISABLE KEYS */;
 /*!40000 ALTER TABLE `pedido` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `pedido_has_servico`
---
-
-DROP TABLE IF EXISTS `pedido_has_servico`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `pedido_has_servico` (
-  `id_pedido` int NOT NULL,
-  `id_servico` int NOT NULL,
-  PRIMARY KEY (`id_pedido`,`id_servico`),
-  KEY `fk_pedido_has_Servico_Servico1_idx` (`id_servico`),
-  KEY `fk_pedido_has_Servico_pedido1_idx` (`id_pedido`),
-  CONSTRAINT `fk_pedido_has_Servico_pedido1` FOREIGN KEY (`id_pedido`) REFERENCES `pedido` (`id_pedido`),
-  CONSTRAINT `fk_pedido_has_Servico_Servico1` FOREIGN KEY (`id_servico`) REFERENCES `servico` (`id_servico`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `pedido_has_servico`
---
-
-LOCK TABLES `pedido_has_servico` WRITE;
-/*!40000 ALTER TABLE `pedido_has_servico` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pedido_has_servico` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -249,33 +177,6 @@ LOCK TABLES `servico` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `servico_has_animal`
---
-
-DROP TABLE IF EXISTS `servico_has_animal`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `servico_has_animal` (
-  `id_servico` int NOT NULL,
-  `id_animal` int NOT NULL,
-  PRIMARY KEY (`id_servico`,`id_animal`),
-  KEY `fk_Servico_has_animal_animal1_idx` (`id_animal`),
-  KEY `fk_Servico_has_animal_Servico1_idx` (`id_servico`),
-  CONSTRAINT `fk_Servico_has_animal_animal1` FOREIGN KEY (`id_animal`) REFERENCES `animal` (`id_animal`),
-  CONSTRAINT `fk_Servico_has_animal_Servico1` FOREIGN KEY (`id_servico`) REFERENCES `servico` (`id_servico`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `servico_has_animal`
---
-
-LOCK TABLES `servico_has_animal` WRITE;
-/*!40000 ALTER TABLE `servico_has_animal` DISABLE KEYS */;
-/*!40000 ALTER TABLE `servico_has_animal` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Dumping events for database 'love_pet'
 --
 
@@ -292,4 +193,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-14 22:39:52
+-- Dump completed on 2022-09-23 22:18:03
