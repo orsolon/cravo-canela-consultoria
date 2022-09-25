@@ -1,0 +1,102 @@
+a {
+    text-decoration: none;
+}
+
+.bg-classic {
+    background-color: #EDEDDC !important;
+}
+
+.button-nav {
+    border: none;
+    margin: 15px;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    width: 150px;
+    height: 30px;
+}
+
+.btn-logar {
+    background-color:#EDEDDC;
+    color: #7AA665 !important;
+}
+
+.btn-cadastrar {
+    background-color: #7AA665 !important;
+    color: #EDEDDC !important;
+}
+
+.nav-link {
+    color: #403624 !important;
+}
+
+.img-principal {
+    width: 1240px ;
+}
+
+.logo-home {
+    width: 280px;
+}
+
+.texto-principal {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    width: 500px;
+    text-align: justify;
+}
+
+.btn-servico {
+    background-color: #7AA665 !important;
+    border-color: #403624 !important;
+    color: #EDEDDC !important;
+    font-weight: bold !important;
+    max-width: 470px;
+    margin-top: 20px;
+}
+
+.img-service {
+    width: 200px;
+    border-radius: 50%;
+}
+
+h2 {
+    font-family: 'Roboto', cursive;
+    font-size: 42px;
+    color: #403624;
+}
+
+.text-service-item {
+    color: #A66c4B;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 15PX;
+}
+
+footer {
+    width: 100%;
+    height: 100p;
+    text-align: center;
+    background-color: #A66C4B;
+    color: #EDEDDC;
+}
+
+footer p {
+    margin: 45px 45px;
+    align-self: center;
+}
+
+footer img {
+    position:relative;
+    height: 120px;
+    width: 120px;
+    padding-bottom: 20px;
+}
+ 
