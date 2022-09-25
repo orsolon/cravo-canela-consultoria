@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -6,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de cliente</title>
+    <title>Cadastro Pet</title>
 
 
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
@@ -37,21 +36,38 @@
         alt="Imagem de um cachorro filhote de cor caramelo">
 
     <form action="">
-        <h3>Cadastre-se</h3>
+        <h3>Cadastre seu bichinho</h3>
 
         <div class="form-container">
                 
-                <input id="nome" class="nome" type="text" placeholder="     Nome">
+                <input id="nome" class="nome" type="text" placeholder="     Nome" style="margin-bottom:10px;">
             
-                <input id="tel" class="tel" type="text" placeholder="     Tel">
+                <input id="raca" class="raca" type="text" placeholder="     Raça" style="margin-bottom:10px;">
             
-                <input id="cpf" class="cpf" type="text" placeholder="     CPF">
+                <input id="peso" class="peso" type="text" placeholder="     Peso" style="margin-bottom:10px;">
             
-                <input id="email" class="email" type="text" placeholder="     Email">
-            
-                <input id="senha" class="senha" type="text" placeholder="     Senha">
+                <select class="form-select escolha" aria-label="escolha o animal" id="animal" style="margin-bottom:10px;">
+                    <option selected>Animal</option>
+                    <option value="1">Cabhorro</option>
+                    <option value="2">Gato</option>
+                    <option value="3">Coelho</option>
+                  </select>
 
-                <span class="avancar my-3" id=""><a href="cadastroEndereco.html">Avançar</a></span>
+                  <select class="form-select escolha" aria-label="escolha o porte" id="porte" style="margin-bottom:10px;">
+                    <option selected>Porte</option>
+                    <option value="1">Grande</option>
+                    <option value="2">Médio</option>
+                    <option value="3">Pequeno</option>
+                  </select>
+
+                  <select class="form-select escolha" aria-label="escolha a pelagem" id="pelo" style="margin-bottom:10px;">
+                    <option selected>Tipo de pelo</option>
+                    <option value="1">Pelo curto</option>
+                    <option value="2">Pelo médio</option>
+                    <option value="3">Pelo pequeno</option>
+                  </select>
+
+                <input type="submit" value="Cadastrar" onclick="cadastrar()" id="buttonCadastrar" class="button-submit my-3">
              
         </div>
     </form>
@@ -67,7 +83,3 @@
 </body>
 
 </html>
-
-
-
-
