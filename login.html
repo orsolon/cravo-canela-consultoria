@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -27,32 +26,24 @@
 
 <body>
 
-    <nav>
-        <a href="index.html"><button id="buttonPaginaInicial" class="button-pagina-inicial">Página inicial</button></a>
-        <a href=""><button id="buttonMinhaConta" class="button-minha-conta">Minha conta</button></a>
-    </nav>
-
     <img class="logo-body" src="assets/img/logo1.png" alt="Logo Love PetShop">
     <img class="imagem-fundo-body" src="assets/img/cadastroimage.png"
         alt="Imagem de um cachorro filhote de cor caramelo">
 
     <form action="">
-        <h3>Cadastre-se</h3>
+        <h3>Faça seu login</h3>
 
         <div class="form-container">
                 
-                <input id="nome" class="nome" type="text" placeholder="Nome">
+                <input id="email" class="email" type="text" placeholder=" Email">
             
-                <input id="tel" class="tel" type="text" placeholder="Tel">
-            
-                <input id="cpf" class="cpf" type="text" placeholder="CPF">
-            
-                <input id="email" class="email" type="text" placeholder="Email">
-            
-                <input id="senha" class="senha" type="text" placeholder="Senha">
+                <input id="senha" class="senha" type="text" placeholder=" Senha">
 
-                <span class="avancar my-3" id=""><a href="cadastroEndereco.html">Avançar</a></span>
+                <input type="submit" value="Entrar" onclick="logar()" id="login" class="button-submit my-3">
              
+        </div>
+        <div>
+            <p>Ainda não tem conta? Cadastra-se <a href="cadastro.html" id="goCadastro">aqui</a></p>
         </div>
     </form>
 
