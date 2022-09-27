@@ -48,7 +48,7 @@ a {
 .texto-principal {
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
-    width: 500px;
+    max-width: 500px;
     text-align: justify;
 }
 
