@@ -1,4 +1,3 @@
-<!doctype html>
 <html>
     <head><h1 align="center"> BraPaws </h1>
         <h2 align="center"> Descrição do Projeto </h2>
