@@ -3,7 +3,6 @@ package br.com.brapaws.petlove.model;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,25 +18,18 @@ public class Cliente {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column (name = "id_cliente")
 	private Integer idCliente;
 	
-	@Column (name = "nome", length = 100, nullable = false)
 	private String nome;
 	
-	@Column (name = "email", length = 50, nullable = false)
 	private String email;
 	
-	@Column (name = "senha", length = 20, nullable = false)
 	private String senha;
 	
-	@Column (name = "cpf", length = 14, nullable = false)
 	private String cpf;
 	
-	@Column (name = "telefone_1", length = 11, nullable = false)
 	private String telefone1;
 	
-	@Column (name = "telefone_2", length = 11, nullable = false)
 	private String telefone2;
 	
 	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)

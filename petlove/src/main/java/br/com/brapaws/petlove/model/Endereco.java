@@ -12,37 +12,28 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table (name = "endereco")
 public class Endereco {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column (name = "id_endereco")
 	private Integer idEndereco;
 	
-	@Column (name = "cep", length = 10, nullable = false)
 	private String cep;
 	
-	@Column (name = "rua", length = 100, nullable = false)
 	private String rua;
 	
-	@Column (name = "numero", nullable = false)
 	private Integer numero;
 	
-	@Column (name = "complemento", length = 45, nullable = true)
 	private String complemento;
 	
-	@Column (name = "bairro", length = 30, nullable = false)
 	private String bairro;
 	
-	@Column (name = "cidade", length = 30, nullable = false)
 	private String cidade;
 	
-	@Column (name = "estado", length = 2, nullable = false)
 	private String estado;
 
 	@ManyToOne
-	@JoinColumn(name = "id_cliente")
+	@JoinColumn(name = "idCliente")
 	@JsonIgnoreProperties("listaEndereco")
 	private Cliente cliente;
 

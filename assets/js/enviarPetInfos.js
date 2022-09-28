@@ -21,13 +21,27 @@ function cadastrarPet() {
     let opcaoAnimal = select.options[select.selectedIndex].value;
     let selectP = document.getElementById('porte');
     let opcaoPorte = selectP.options[select.selectedIndex].value;
+
+    if(nomePet === '' || raca === '' || peso === ''){
+        event.preventDefault();
+        mensagem.textContent = "Campos Nome, Raça e Peso são obrigatórios. Preencha por favor!";
+        
+    }
+    else{
+        event.preventDefault();
+        mensagem.textContent = "Animal cadastrado com sucesso! Clicar Login para executar o acesso!";
+        
+    }
   
     let body = {
         "nome": nomePet,
         "raca": raca,
         "peso": peso,
         "tipo": opcaoAnimal,
-        "porte": opcaoPorte
+        "porte": opcaoPorte,
+        "cliente":{
+            "idCliente": null
+        }
     }
 
     fazPost (url, body) 

@@ -5,7 +5,6 @@ import java.time.LocalTime;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,54 +12,41 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table (name = "pedido")
 public class Pedido {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
-	@Column (name = "id_pedido")
 	private Integer idPedido;
 	
-	@Column(name = "data", nullable = false)
 	private LocalDate dataPedido;
 	
-	@Column(name = "horario", nullable = false)
 	private LocalTime horarioPedido;
 	
-	@Column(name = "quant_animal", nullable = false)
 	private Integer quantAnimal;
 	
-	@Column(name = "horario_busca", nullable = false)
 	private LocalTime horarioBusca;
 	
-	@Column(name = "horario_entrega", nullable = false)
 	private LocalTime horarioEntrega;
 	
-	@Column(name = "status", length = 20, nullable = false)
 	private String status;
 	
-	@Column(name = "preco_inicial", nullable = false)
 	private Double precoInicial;
 	
-	@Column(name = "preco_final", nullable = false)
 	private Double precoFinal;
 	
-	@Column(name = "desconto", nullable = true)
 	private Double desconto;
 	
-	@Column(name = "tempo_execucao", nullable = true)
 	private LocalTime tempoExecucao;
 	
-	@Column(name = "forma_pagto", length = 15, nullable = false)
 	private String formaPagto;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_cliente")
+	@JoinColumn(name = "idCliente")
 	@JsonIgnoreProperties({"listaEndereco", "listaAnimal"})
 	private Cliente cliente;
 	

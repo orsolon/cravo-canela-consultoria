@@ -1,0 +1,301 @@
+{
+	"info": {
+		"_postman_id": "3fb485a7-2b8a-4cbf-8406-c3b1436adb50",
+		"name": "Brapaws",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12583732"
+	},
+	"item": [
+		{
+			"name": "Buscar todos clientes",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar cliente pelo ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/clientes/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Inserir novo cliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n    \"nome\": \"Arthur Renato Silveira\",\r\n    \"email\": \"arthur.renato.silveira@ulbra.edu.br\",\r\n    \"senha\": \"3456773\",\r\n    \"cpf\": \"463.412.995-75\",\r\n    \"telefone1\": \"79996903482\",\r\n    \"telefone2\": \"7927390103\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/clientes",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar enderecos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/enderecos/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"enderecos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Inserir novo endereco",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cep\": \"68909-010\",\r\n    \"rua\": \"Travessa do Paraíso\",\r\n    \"numero\": 923,\r\n    \"complemento\": null,\r\n    \"bairro\": \"Jardim Felicidade\",\r\n    \"cidade\": \"Macapá\",\r\n    \"estado\": \"AP\",\r\n    \"cliente\": {\r\n        \"idCliente\": 3\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/enderecos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"enderecos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alterar Endereco",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n    {\r\n        \"idEndereco\": 1,\r\n        \"cep\": \"03359-090\",\r\n        \"rua\": \"Travessa Juvenal Antônio Schalch\",\r\n        \"numero\": 777,\r\n        \"complemento\": null,\r\n        \"bairro\": \"Vila Formosa\",\r\n        \"cidade\": \"São Paulo\",\r\n        \"estado\": \"SP\",\r\n        \"cliente\": {\r\n            \"idCliente\": 1\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/enderecos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"enderecos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar todos animais",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/animais/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"animais",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Inserir novo animal",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"nome\": \"Honey\",\r\n    \"raca\": \"Husky\",\r\n    \"peso\": 10,\r\n    \"tipo\": \"medio\",\r\n    \"porte\": \"80\",\r\n    \"cliente\": {\r\n        \"idCliente\": 3\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/animais",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"animais"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar todos servicos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/servicos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"servicos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Inserir novo servico",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \r\n        \"nomeServico\": \"Tosa\",\r\n        \"descricao\": \"Teste de tosa\",\r\n        \"valorServico\": 60.0,\r\n        \"tempoServico\": \"00:30:00\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/servicos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"servicos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar servico",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"idServico\": 1,\r\n        \"nomeServico\": \"Banho\",\r\n        \"descricao\": \"Lavar com sabonete\",\r\n        \"valorServico\": 60.0,\r\n        \"tempoServico\": \"01:30:00\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/servicos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"servicos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar pedido",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/pedidos/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pedidos",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar pedido",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n    \"dataPedido\": \"2022-09-26\",\r\n    \"horarioPedido\": \"19:00:00\",\r\n    \"quantAnimal\": 1,\r\n    \"horarioBusca\": \"08:30:00\",\r\n    \"horarioEntrega\": \"10:00:00\",\r\n    \"status\": \"Pedido aberto\",\r\n    \"precoInicial\": 60.0,\r\n    \"precoFinal\": 60.0,\r\n    \"desconto\": null,\r\n    \"tempoExecucao\": \"03:00:00\",\r\n    \"formaPagto\": \"Boleto\",\r\n    \"cliente\": {\r\n        \"idCliente\": 3\r\n    },\r\n    \"itens\": [\r\n        {\r\n            \r\n            \"animal\": {\r\n                \"idAnimal\": 4},\r\n            \"servico\": {\r\n                \"idServico\": 2}}]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/pedidos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pedidos"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,9 +1,9 @@
 package br.com.brapaws.petlove.dao;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import br.com.brapaws.petlove.model.Endereco;
 
-public interface EnderecoDAO extends CrudRepository<Endereco, Integer>{
+public interface EnderecoDAO extends JpaRepository<Endereco, Integer>{
 	
 }

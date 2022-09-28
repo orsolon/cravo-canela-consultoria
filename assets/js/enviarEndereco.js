@@ -12,7 +12,7 @@ function fazPost(url, body) {
 }
 
 function cadastrarEndereco() {
-    event.preventDefault();
+    
     let url = "";
     let cep = document.getElementById('cep').value;
     let rua = document.getElementById('rua').value;
@@ -21,6 +21,17 @@ function cadastrarEndereco() {
     let bairro = document.getElementById('bairro').value;
     let cidade = document.getElementById('cidade').value;
     let estado = document.getElementById('estado').value;
+
+    if(cep === '' || rua === '' || numero === '' || bairro === ''|| cidade === '' || estado === ''){
+        event.preventDefault();
+        mensagem.textContent = "Campos CEP, Rua, Número, Bairro, Cidade e Estado são obrigatórios. Preencha por favor!";
+        
+    }
+    else{
+        event.preventDefault();
+        mensagem.textContent = "Endereço cadastrado com sucesso! Continue cadastrar seu animal por favor!";
+        
+    }
   
     let body = {
         "cep": cep,
@@ -29,7 +40,10 @@ function cadastrarEndereco() {
         "complemento": complemento,
         "bairro": bairro,
         "cidade": cidade,
-        "estado": estado
+        "estado": estado,
+        "cliente"{
+            "idCliente": null
+        }
     }
 
     fazPost (url, body);

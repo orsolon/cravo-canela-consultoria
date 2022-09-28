@@ -1,42 +1,34 @@
 package br.com.brapaws.petlove.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table (name = "animal")
 public class Animal {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column (name = "id_animal")
 	private Integer idAnimal;
 	
-	@Column (name = "nome", length = 45, nullable = false)
 	private String nome;
 	
-	@Column (name = "raca", length = 45, nullable = false)
 	private String raca;
 	
-	@Column (name = "peso", nullable = true)
 	private Integer peso;
 	
-	@Column (name = "tipo", length = 10, nullable = true)
 	private String tipo;
 	
-	@Column (name = "porte", length = 5, nullable = true)
 	private String porte;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_cliente")
+	@JoinColumn(name = "idCliente")
 	@JsonIgnoreProperties("listaAnimal")
 	private Cliente cliente;
 
