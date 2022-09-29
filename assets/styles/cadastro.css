@@ -150,7 +150,7 @@ input {
     margin-right: 30px;
 }
 
-.cep, .bairro, .cidade, .estado, .tel,  .cpf, .raca, .peso{
+.cep, .bairro, .cidade, .estado, .tel,  .cpf, .raca, .peso, .animal, .porte{
     width: 270px;
     height: 40px;
     background: #EDEDDC;
