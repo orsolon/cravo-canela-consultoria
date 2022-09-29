@@ -6,7 +6,7 @@ function fazerGet(url){
 }
 
 
-function inserirDadosNaTela(pedido,  cliente, itens) {
+function inserirDadosNaTela(pedido) {
     console.log(pedido);
     coluna = document.createElement("td");
     trIdPedido = document.createElement("tr");
@@ -36,7 +36,7 @@ function inserirDadosNaTela(pedido,  cliente, itens) {
     trDesconto.innerHTML = pedido.desconto;
     trTempoExecucao.innerHTML = pedido.tempoExecucao;
     trFormaPagto.innerHTML = pedido.formaPagto;
-    trCliente.innerHTM = cliente.nome;
+    trCliente.innerHTM = pedido.nome;
     trItens.innerHTM = pedido.itens.nome;
 
     
@@ -61,17 +61,17 @@ function inserirDadosNaTela(pedido,  cliente, itens) {
 
 function main() {
 
-    let data1 = fazerGet("http://127.0.0.1:5000/clientes");
+    /*let data1 = fazerGet("http://127.0.0.1:5000/clientes");
     clientes = JSON.parse(data1);
     console.log(clientes);
 
     clientes.forEach(element => {
-        if(element.idPedido === 1){
+        if(element.idCliente === 1){
             console.log(element);
         }
-    });
+    });*/
 
-    let data = fazerGet("http://127.0.0.1:5000/pedidos")
+    let data = fazerGet("http://127.0.0.1:5000/pedidos");
     pedidos = JSON.parse(data);
     console.log(pedidos);
 

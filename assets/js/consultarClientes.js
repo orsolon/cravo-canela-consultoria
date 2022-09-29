@@ -1,5 +1,5 @@
 //Obter todos os clientes no banco de dados
-function consultarClientes(url){
+function fazerGet(url){
     let request = new XMLHttpRequest();
     request.open("GET", url, false);
     request.send();
@@ -31,17 +31,14 @@ function inserirDadosNaTela(usuario) {
 }
 
 function main() {
-    let data = consultarClientes("http://127.0.0.1:5000/clientes")
+    let data = consultarClientes("http://127.0.0.1:5000/clientes");
     usuarios = JSON.parse(data);
     console.log(usuarios);
 
-    let tabela = document.getElementById("Cliente");
+    let tabela = document.getElementById("tabela");
     usuarios.forEach(element => {
-        if(element.idCliente === 1){
-            let linha = inserirDadosNaTela(element);
+        let linha = inserirDadosNaTela(element);
             tabela.appendChild(linha);
-        }
-        
 
     });
     
