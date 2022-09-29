@@ -23,16 +23,16 @@ DROP TABLE IF EXISTS `animal`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `animal` (
-  `id_animal` int NOT NULL AUTO_INCREMENT,
-  `nome` varchar(45) NOT NULL,
-  `raca` varchar(45) NOT NULL,
+  `idAnimal` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(255) NOT NULL,
   `peso` int DEFAULT NULL,
-  `tipo` varchar(10) DEFAULT NULL,
-  `porte` varchar(5) DEFAULT NULL,
-  `id_cliente` int DEFAULT NULL,
-  PRIMARY KEY (`id_animal`),
-  KEY `id_cliente1_idx` (`id_cliente`),
-  CONSTRAINT `id_cliente1` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`)
+  `porte` varchar(255) DEFAULT NULL,
+  `raca` varchar(255) NOT NULL,
+  `tipo` varchar(255) DEFAULT NULL,
+  `idCliente` int DEFAULT NULL,
+  PRIMARY KEY (`idAnimal`),
+  KEY `id_cliente1_idx` (`idCliente`),
+  CONSTRAINT `idCliente1` FOREIGN KEY (`idCliente`) REFERENCES `cliente` (`idCliente`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COMMENT='	';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -53,14 +53,13 @@ DROP TABLE IF EXISTS `cliente`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cliente` (
-  `id_cliente` int NOT NULL AUTO_INCREMENT,
-  `nome` varchar(100) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `senha` text,
-  `cpf` varchar(14) NOT NULL,
-  `telefone_1` varchar(11) NOT NULL,
-  `telefone_2` varchar(11) DEFAULT NULL,
-  PRIMARY KEY (`id_cliente`)
+  `idCliente` int NOT NULL AUTO_INCREMENT,
+  `cpf` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `senha` varchar(255) DEFAULT NULL,
+  `telefone_1` varchar(255) NOT NULL,
+  PRIMARY KEY (`idCliente`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -81,18 +80,18 @@ DROP TABLE IF EXISTS `endereco`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `endereco` (
-  `id_endereco` int NOT NULL AUTO_INCREMENT,
-  `cep` varchar(10) NOT NULL,
-  `rua` varchar(100) NOT NULL,
+  `idEndereco` int NOT NULL AUTO_INCREMENT,
+  `bairro` varchar(255) NOT NULL,
+  `cep` varchar(255) NOT NULL,
+  `cidade` varchar(255) NOT NULL,
+  `complemento` varchar(255) DEFAULT NULL,
+  `estado` varchar(255) NOT NULL,
   `numero` int NOT NULL,
-  `complemento` varchar(45) DEFAULT NULL,
-  `bairro` varchar(30) NOT NULL,
-  `cidade` varchar(30) NOT NULL,
-  `estado` varchar(2) NOT NULL,
-  `id_cliente` int DEFAULT NULL,
-  PRIMARY KEY (`id_endereco`),
-  KEY `id_cliente_idx` (`id_cliente`),
-  CONSTRAINT `id_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`)
+  `rua` varchar(255) DEFAULT NULL,
+  `idCliente` int DEFAULT NULL,
+  PRIMARY KEY (`idEndereco`),
+  KEY `idCliente_idx` (`idCliente`),
+  CONSTRAINT `idCliente` FOREIGN KEY (`idCliente`) REFERENCES `cliente` (`idCliente`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COMMENT='		';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -106,6 +105,37 @@ LOCK TABLES `endereco` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `itemanimal`
+--
+
+DROP TABLE IF EXISTS `itemanimal`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `itemanimal` (
+  `seq` int NOT NULL AUTO_INCREMENT,
+  `idAnimal` int DEFAULT NULL,
+  `IdPedido` int DEFAULT NULL,
+  `idServico` int DEFAULT NULL,
+  PRIMARY KEY (`seq`),
+  KEY `idAnimal_idx` (`idAnimal`),
+  KEY `idPedido_idx` (`IdPedido`),
+  KEY `idServico_idx` (`idServico`),
+  CONSTRAINT `idAnimal` FOREIGN KEY (`idAnimal`) REFERENCES `animal` (`idAnimal`),
+  CONSTRAINT `idPedido` FOREIGN KEY (`IdPedido`) REFERENCES `pedido` (`id_pedido`),
+  CONSTRAINT `idServico` FOREIGN KEY (`idServico`) REFERENCES `servico` (`idServico`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `itemanimal`
+--
+
+LOCK TABLES `itemanimal` WRITE;
+/*!40000 ALTER TABLE `itemanimal` DISABLE KEYS */;
+/*!40000 ALTER TABLE `itemanimal` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `pedido`
 --
 
@@ -114,30 +144,21 @@ DROP TABLE IF EXISTS `pedido`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `pedido` (
   `id_pedido` int NOT NULL AUTO_INCREMENT,
-  `data` date NOT NULL,
-  `horario` time NOT NULL,
-  `quant_animal` int NOT NULL,
-  `horario_busca` time NOT NULL,
-  `horario_entrega` time NOT NULL,
-  `status` varchar(20) NOT NULL,
-  `preco_inicial` double NOT NULL,
-  `preco_final` double NOT NULL,
-  `desconto` double DEFAULT NULL,
-  `tempo_execucao` time DEFAULT NULL,
-  `forma_pagto` varchar(15) NOT NULL,
-  `id_cliente` int DEFAULT NULL,
-  `id_animal` int DEFAULT NULL,
-  `id_servico` int DEFAULT NULL,
-  `id_endereco` int DEFAULT NULL,
+  `dataPedido` date NOT NULL,
+  `desconto` double NOT NULL,
+  `formaPagto` varchar(255) NOT NULL,
+  `horarioBusca` time NOT NULL,
+  `horarioEntrega` time NOT NULL,
+  `horarioPedido` time NOT NULL,
+  `precoFinal` double NOT NULL,
+  `precoInicial` double NOT NULL,
+  `quantAnimal` int DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `tempoExecucao` varchar(255) NOT NULL,
+  `idCliente` int DEFAULT NULL,
   PRIMARY KEY (`id_pedido`),
-  KEY `fk_pedido_cliente1_idx` (`id_cliente`),
-  KEY `id_animal_idx` (`id_animal`),
-  KEY `id_servico3_idx` (`id_servico`),
-  KEY `id_endereco_idx` (`id_endereco`),
-  CONSTRAINT `fk_pedido_cliente1` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`),
-  CONSTRAINT `id_animal` FOREIGN KEY (`id_animal`) REFERENCES `animal` (`id_animal`),
-  CONSTRAINT `id_endereco` FOREIGN KEY (`id_endereco`) REFERENCES `endereco` (`id_endereco`),
-  CONSTRAINT `id_servico` FOREIGN KEY (`id_servico`) REFERENCES `servico` (`id_servico`)
+  KEY `fk_pedido_cliente1_idx` (`idCliente`),
+  CONSTRAINT `idCliente3` FOREIGN KEY (`idCliente`) REFERENCES `cliente` (`idCliente`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -158,12 +179,12 @@ DROP TABLE IF EXISTS `servico`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `servico` (
-  `id_servico` int NOT NULL AUTO_INCREMENT,
-  `nome_servico` varchar(15) NOT NULL,
-  `descricao` varchar(100) NOT NULL,
-  `valor_servico` double NOT NULL,
-  `tempo_servico` time NOT NULL,
-  PRIMARY KEY (`id_servico`)
+  `idServico` int NOT NULL AUTO_INCREMENT,
+  `descricao` varchar(255) NOT NULL,
+  `nomeServico` varchar(255) NOT NULL,
+  `tempoServico` time NOT NULL,
+  `valorServico` double NOT NULL,
+  PRIMARY KEY (`idServico`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -193,4 +214,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-23 22:18:03
+-- Dump completed on 2022-09-30  0:44:08
