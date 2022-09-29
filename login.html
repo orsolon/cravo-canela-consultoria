@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de cliente</title>
+    <title>Acesso de cliente</title>
 
 
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
@@ -39,13 +39,16 @@
             
                 <input id="senha" class="senha" type="text" placeholder=" Senha">
 
-                <input type="submit" value="Entrar" onclick="logar()" id="login" class="button-submit my-3">
+                <button type="submit" onclick="fazerLogin()" class="avancar">Avançar</button>
              
         </div>
         <div>
             <p>Ainda não tem conta? Cadastra-se <a href="cadastro.html" id="goCadastro">aqui</a></p>
         </div>
+        <script src="./assets/js/logar.js"></script>
     </form>
+
+    <p></p>
 
     <footer>
         <p> &copy;2022 Love Pet Shop</p>
@@ -54,7 +57,7 @@
 
 
 
-    <script src="./assets/js/logar.js"></script>
+    
 </body>
 
 </html>

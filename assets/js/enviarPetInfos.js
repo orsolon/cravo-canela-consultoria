@@ -1,4 +1,11 @@
-function fazPost(url, body) {
+function fazerGet(url){
+    let request = new XMLHttpRequest();
+    request.open("GET", url, false);
+    request.send();
+    return request.responseText;
+}
+
+function fazerPost(url, body) {
     let request = new XMLHttpRequest();
     request.open("POST", url, true);
     request.setRequestHeader("Content-Type", "application/json");
@@ -12,15 +19,18 @@ function fazPost(url, body) {
 }
 
 function cadastrarPet() {
+    // Mapear o ID do cliente para salvar o endereço:
+    let meuCliente = ultimoCliente();
+
+    // Salvar os dados do animal:
     event.preventDefault();
-    let url = "";
+    let urlAnimal = "http://127.0.0.1:5000/animais";
     let nomePet = document.getElementById('nomePet').value;
     let raca = document.getElementById('raca').value;
     let peso = document.getElementById('peso').value;
-    let select = document.getElementById('animal')
-    let opcaoAnimal = select.options[select.selectedIndex].value;
-    let selectP = document.getElementById('porte');
-    let opcaoPorte = selectP.options[select.selectedIndex].value;
+    let animal = document.getElementById('animal').value
+    let porte = document.getElementById('porte').value;
+    let mensagem = document.querySelector('p');
 
     if(nomePet === '' || raca === '' || peso === ''){
         event.preventDefault();
@@ -37,12 +47,31 @@ function cadastrarPet() {
         "nome": nomePet,
         "raca": raca,
         "peso": peso,
-        "tipo": opcaoAnimal,
-        "porte": opcaoPorte,
+        "tipo": animal,
+        "porte": porte,
         "cliente":{
-            "idCliente": null
+            "idCliente": meuCliente
         }
     }
 
-    fazPost (url, body) 
+    fazerPost (urlAnimal, body);
 }
+
+function ultimoCliente() {
+    let data = fazerGet("http://127.0.0.1:5000/clientes");
+    usuarios = JSON.parse(data);
+    
+    let contador = -1;
+    
+    usuarios.forEach(element => {
+        contador = contador + 1;
+    
+    });
+    let idCliente = usuarios[contador].idCliente;
+    console.log("O ID do último cliente na lista:")
+    console.log(idCliente);
+    return idCliente;
+}
+
+ultimoCliente();
+console.log(typeof ultimoCliente());

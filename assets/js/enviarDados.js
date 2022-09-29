@@ -1,5 +1,5 @@
 
-function fazPost(url, body) {
+function fazerPost(url, body) {
     console.log("Body", body)
     
     let request = new XMLHttpRequest();
@@ -16,7 +16,7 @@ function fazPost(url, body) {
 }
 
 function cadastrarUsuario() {
-    
+
     let url = "http://127.0.0.1:5000/clientes";
     let nome = document.getElementById('nome').value;
     let email = document.getElementById('email').value;
@@ -33,6 +33,9 @@ function cadastrarUsuario() {
     else{
         event.preventDefault();
         mensagem.textContent = "Usuário cadastrado com sucesso! Continue cadastrar seu endereço por favor!";
+        setTimeout(function(){
+            window.location.href = 'cadastroEndereco.html';
+       }, 2000);
         
     }
   
@@ -45,5 +48,5 @@ function cadastrarUsuario() {
         "telefone2": null
     }
 
-    fazPost (url, body);
+    fazerPost (url, body);
 }
