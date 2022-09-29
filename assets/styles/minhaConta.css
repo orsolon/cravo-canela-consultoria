@@ -1,0 +1,31 @@
+.bg-classic {
+    background-color: #EDEDDC !important;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #7AA665 !important;
+}
+
+.nav-link {
+    width: 170px;
+    margin-top: 20px;
+    color: #403624 !important;
+}
+
+.card {
+    background-color: #EDEDDC !important;
+}
+
+h3 {
+    color: #A66c4B;
+    font-family: 'Shadows Into Light', cursive;
+}
+
+.btn-enviar {
+   background-color: #7AA665 !important;
+}
+
+.card {
+    width: 500px;
+}
