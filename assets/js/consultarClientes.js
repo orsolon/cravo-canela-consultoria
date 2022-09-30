@@ -9,28 +9,31 @@ function fazerGet(url){
 function inserirDadosNaTela(usuario) {
     console.log(usuario);
     linha = document.createElement("tr");
+    tdId = document.createElement("td");
     tdNome = document.createElement("td");
     tdEmail = document.createElement("td");
     tdCpf = document.createElement("td");
     tdTelefone1 = document.createElement("td");
-    tdIdEndereco = document.createElement("td");
+    //tdIdEndereco = document.createElement("td");
 
+    tdId.innerHTML = usuario.idCliente;
     tdNome.innerHTML = usuario.nome;
     tdEmail.innerHTML = usuario.email;
     tdCpf.innerHTML = usuario.cpf;
     tdTelefone1.innerHTML = usuario.telefone1;
-    tdIdEndereco.innerHTML = usuario.listaEndereco;
+    //tdIdEndereco.innerHTML = usuario.listaEndereco;
 
+    linha.appendChild(tdId);
     linha.appendChild(tdNome);
     linha.appendChild(tdEmail);
     linha.appendChild(tdCpf);
     linha.appendChild(tdTelefone1);
-    linha.appendChild(tdIdEndereco);
+    //linha.appendChild(tdIdEndereco);
 
     return linha;
 }
 
-function main() {
+function dadosCliente() {
     let data = fazerGet("http://127.0.0.1:5000/clientes");
     usuarios = JSON.parse(data);
     console.log(usuarios);
@@ -38,10 +41,12 @@ function main() {
     let tabela = document.getElementById("tabela");
     usuarios.forEach(element => {
         let linha = inserirDadosNaTela(element);
-            tabela.appendChild(linha);
-
+        tabela.appendChild(linha);
+       
     });
     
 }
 
-main();
+
+
+dadosCliente();
