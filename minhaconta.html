@@ -41,13 +41,27 @@
                                     <div class="card-body">
                                       <h3>Clientes</h3>
                                        <br>
-                                      <table class="table" id="tabela"></table>
+                                       <ul id="usuarios"></ul>
+                                       
+                                        
                                     </div>
 
                                     <div class="card-body">
                                       <h3>Informar o ID do cliente desejado a atualizar:</h3>
                                       <input id="altera" class="nome" type="text" placeholder="ID do cliente">
-                                      <button type="submit" onclick="deletarCliente()" class="avancar">Avançar ao cliente</button>
+                                      <button type="submit" onclick="consultarClientePeloID()" class="avancar">Avançar aos dados do cliente</button>
+                                      <ul id = "dados">
+                                        <li id = "li1">Nome: </li>
+                                        <li id = "li2">E-mail: </li>
+                                        <li id = "li3">CPF: </li>
+                                        <li id = "li4">Telefone: </li>
+                                      </ul>
+                                      <input id="email" class="email" type="text" placeholder="Email">
+                                      <input id="cpf" class="cpf" type="text" placeholder="CPF">
+                                      <input id="tel" class="tel" type="text" placeholder="Tel">
+                                      <input id="Senha" class="tel" type="text" placeholder="Senha">
+                                      <button type="submit" onclick="atualizarCliente()" class="avancar">Salvar</button>  
+                                      <p></p>     
                                     </div>
 
                                     <div class="card-body">
@@ -112,6 +126,7 @@
     
     <script src="./assets/js/consultarClientes.js"></script>
     <script src="./assets/js/consultarPedidos.js"></script>
+    <script src="./assets/js/atualizarCliente.js"></script>
     <script src="./assets/js/deletarCliente.js"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->

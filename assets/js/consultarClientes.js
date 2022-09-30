@@ -8,29 +8,32 @@ function fazerGet(url){
 
 function inserirDadosNaTela(usuario) {
     console.log(usuario);
-    linha = document.createElement("tr");
-    tdId = document.createElement("td");
-    tdNome = document.createElement("td");
-    tdEmail = document.createElement("td");
-    tdCpf = document.createElement("td");
-    tdTelefone1 = document.createElement("td");
+    lista = document.createElement("ul");
+    tdID = document.createElement("li");
+    tdNome = document.createElement("li");
+    //tdEmail = document.createElement("li");
+    //tdCpf = document.createElement("li");
+    //tdTelefone1 = document.createElement("li");
+    tdPulaLinha = document.createElement("h2");
     //tdIdEndereco = document.createElement("td");
 
-    tdId.innerHTML = usuario.idCliente;
-    tdNome.innerHTML = usuario.nome;
-    tdEmail.innerHTML = usuario.email;
-    tdCpf.innerHTML = usuario.cpf;
-    tdTelefone1.innerHTML = usuario.telefone1;
+    tdID.innerHTML = "ID: " + usuario.idCliente;
+    tdNome.innerHTML = "Nome: " + usuario.nome;
+    //tdEmail.innerHTML = "Email: " + usuario.email;
+    //tdCpf.innerHTML = "CPF: " + usuario.cpf;
+    //tdTelefone1.innerHTML = "Telefone: " + usuario.telefone1;
+    tdPulaLinha.innerHTML = "";
     //tdIdEndereco.innerHTML = usuario.listaEndereco;
 
-    linha.appendChild(tdId);
-    linha.appendChild(tdNome);
-    linha.appendChild(tdEmail);
-    linha.appendChild(tdCpf);
-    linha.appendChild(tdTelefone1);
+    lista.appendChild(tdID);
+    lista.appendChild(tdNome);
+    //lista.appendChild(tdEmail);
+    //lista.appendChild(tdCpf);
+    //lista.appendChild(tdTelefone1);
+    lista.appendChild(tdPulaLinha);
     //linha.appendChild(tdIdEndereco);
 
-    return linha;
+    return lista;
 }
 
 function dadosCliente() {
@@ -38,10 +41,10 @@ function dadosCliente() {
     usuarios = JSON.parse(data);
     console.log(usuarios);
 
-    let tabela = document.getElementById("tabela");
+    let tabela = document.getElementById("usuarios");
     usuarios.forEach(element => {
-        let linha = inserirDadosNaTela(element);
-        tabela.appendChild(linha);
+        let lista = inserirDadosNaTela(element);
+        tabela.append(lista);
        
     });
     

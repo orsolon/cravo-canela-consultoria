@@ -9,6 +9,7 @@ function deletarCliente(){
     let id = document.getElementById('idCliente').value;
     fazerDelete("http://127.0.0.1:5000/clientes/"+id);
     console.log("Cliente deletado");
+    window.location.reload();
 
 }
 
