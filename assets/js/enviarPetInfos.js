@@ -40,7 +40,9 @@ function cadastrarPet() {
     else{
         event.preventDefault();
         mensagem.textContent = "Animal cadastrado com sucesso! Clicar Login para executar o acesso!";
-        
+        setTimeout(function(){
+            window.location.href = 'minhaconta.html';
+       }, 2000);
     }
   
     let body = {

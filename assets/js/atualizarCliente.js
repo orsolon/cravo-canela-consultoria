@@ -76,4 +76,5 @@ function atualizarCliente() {
     }
 
     fazerPut (url, body);
+    window.location.reload();
 }
