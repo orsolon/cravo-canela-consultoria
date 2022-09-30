@@ -25,17 +25,17 @@ function inserirDadosNaTela(pedido) {
     trItens = document.createElement("tr");
 
     trIdPedido.innerHTML = "Id do pedido: " + pedido.idPedido;
-    trDataPedido.innerHTML = pedido.dataPedido;
-    trHorarioPedido.innerHTML = pedido.horarioPedido;
-    trQuantAnimal.innerHTML = pedido.quantAnimal;
-    trHorarioBusca.innerHTML = pedido.horarioBusca;
-    trHorarioEntrega.innerHTML = pedido.horarioEntrega;
-    trStatus.innerHTML = pedido.status;
-    trPrecoInicial.innerHTML = pedido.precoInicial;
-    trPrecoFinal.innerHTML = pedido.precoFinal;
-    trDesconto.innerHTML = pedido.desconto;
-    trTempoExecucao.innerHTML = pedido.tempoExecucao;
-    trFormaPagto.innerHTML = pedido.formaPagto;
+    trDataPedido.innerHTML = "Data do pedido: " + pedido.dataPedido;
+    trHorarioPedido.innerHTML = "Horário: " + pedido.horarioPedido;
+    trQuantAnimal.innerHTML = "Qt Animais: " + pedido.quantAnimal;
+    trHorarioBusca.innerHTML = "Horário de Busca: " + pedido.horarioBusca;
+    trHorarioEntrega.innerHTML = "Horário de Retirada: " + pedido.horarioEntrega;
+    trStatus.innerHTML = "Status Pedido: " + pedido.status;
+    trPrecoInicial.innerHTML = "Preço Inicial: R$ " + pedido.precoInicial;
+    trPrecoFinal.innerHTML = "Preço Final: R$ " + pedido.precoFinal;
+    trDesconto.innerHTML = "Desconto: R$ " + pedido.desconto;
+    trTempoExecucao.innerHTML = "Tempo de execução" + pedido.tempoExecucao;
+    trFormaPagto.innerHTML = "Forma de Pgto" = pedido.formaPagto;
     trCliente.innerHTM = pedido.nome;
     trItens.innerHTM = pedido.itens.nome;
 
