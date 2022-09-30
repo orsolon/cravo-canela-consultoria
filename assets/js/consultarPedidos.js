@@ -69,6 +69,7 @@ function main() {
         }
     });*/
 
+   
     let data = fazerGet("http://127.0.0.1:5000/pedidos");
     pedidos = JSON.parse(data);
     console.log(pedidos);
