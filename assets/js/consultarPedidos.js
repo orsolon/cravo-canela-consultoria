@@ -24,7 +24,7 @@ function inserirDadosNaTela(pedido) {
     trCliente = document.createElement("tr");
     trItens = document.createElement("tr");
 
-    trIdPedido.innerHTML = pedido.idPedido;
+    trIdPedido.innerHTML = "Id do pedido: " + pedido.idPedido;
     trDataPedido.innerHTML = pedido.dataPedido;
     trHorarioPedido.innerHTML = pedido.horarioPedido;
     trQuantAnimal.innerHTML = pedido.quantAnimal;
