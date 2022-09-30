@@ -9,8 +9,8 @@
         o intuito de suportar um estabelecimento de petshop.</p>
     <p align="justify">A metodologia de trabalho adotada foi a ágil com o uso da ferramenta trello. As tarefas foram divididas de acordo com a maior afinidade das integrantes, ficando da seguinte forma:</p>
     <ol>
-        <li>Banco de Dados: Bruna Molia e Stefânia Marques</li>
-        <li>Front-End: Tamy de Oliveira e Debora Orsolon</li>
+        <li>Banco de Dados: Bruna Molina e Stefânia Marques</li>
+        <li>Front-End: Debora Orsolon</li>
         <li>Back-End: Jéssica He</li>
         <li> Implementação AWS: todas </li>
     </ol>
