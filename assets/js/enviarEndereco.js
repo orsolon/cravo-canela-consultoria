@@ -42,7 +42,9 @@ function cadastrarEndereco() {
     else{
         event.preventDefault();
         mensagem.textContent = "Endereço cadastrado com sucesso! Continue cadastrar seu animal por favor!";
-        //setTimeout(function(){window.location.href = 'cadastroPet.html';}, 2000);
+        setTimeout(function(){
+            window.location.href = 'cadastroPet.html';
+       }, 2000);
 
     }
   

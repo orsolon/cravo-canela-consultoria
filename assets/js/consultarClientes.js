@@ -31,7 +31,7 @@ function inserirDadosNaTela(usuario) {
 }
 
 function main() {
-    let data = consultarClientes("http://127.0.0.1:5000/clientes");
+    let data = fazerGet("http://127.0.0.1:5000/clientes");
     usuarios = JSON.parse(data);
     console.log(usuarios);
 
