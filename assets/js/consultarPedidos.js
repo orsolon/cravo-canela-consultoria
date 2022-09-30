@@ -35,9 +35,7 @@ function inserirDadosNaTela(pedido) {
     trPrecoFinal.innerHTML = "Preço Final: R$ " + pedido.precoFinal;
     trDesconto.innerHTML = "Desconto: R$ " + pedido.desconto;
     trTempoExecucao.innerHTML = "Tempo de execução" + pedido.tempoExecucao;
-    trFormaPagto.innerHTML = "Forma de Pgto" = pedido.formaPagto;
-    trCliente.innerHTM = pedido.nome;
-    trItens.innerHTM = pedido.itens.nome;
+    trFormaPagto.innerHTML = "Forma de Pgto" + pedido.formaPagto;
 
     
     coluna.appendChild(trIdPedido);
